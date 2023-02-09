@@ -42,15 +42,9 @@ class ChatTableViewController: BaseTableViewController {
         
         let viewModel = MainInputViewModel(textViewText: textViewText,
                                            sendButtonAction: { [weak self]  button, textViewText in
-            
-            let param: parameter = [
-                "model": "text-davinci-001",
-                "prompt" : textViewText
-            ]
-            
-            APIService.shared.requestWithParam(httpMethod: .post, headerField: APIService.shared.createTokenWithJsonHeader(), urlText: .ChatGPTURL, param: param, modelType: GPTRespondModel.self) { jsonModel, error in
-                print(jsonModel?.text ?? "")
-            }
+            self?.viewModel?.generateText(inputText: textViewText, complete: { respondText in
+                print(respondText)
+            })
         })
         
         if reset {

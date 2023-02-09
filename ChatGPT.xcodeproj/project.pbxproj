@@ -126,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				369B116629932385003F2660 /* AppDelegate.swift */,
+				369B11AC299333D4003F2660 /* APIService.swift */,
 				369B116A29932385003F2660 /* ChatTableViewController.swift */,
 				369B11B629949B3D003F2660 /* ChatTableViewModel.swift */,
 				369B11B529949B1B003F2660 /* InputVIew */,
@@ -168,7 +169,6 @@
 				369B11A1299333A9003F2660 /* JBJson.swift */,
 				369B119B299333A9003F2660 /* KeyboardHelper.swift */,
 				369B119E299333A9003F2660 /* TableViewAdapter.swift */,
-				369B11AC299333D4003F2660 /* APIService.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";

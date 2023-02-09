@@ -42,12 +42,13 @@ class APIService {
         case ChatGPTURL = "https://api.openai.com/v1/completions"
     }
     
-    let apiKey = "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"
+    let apiKey = "sk/3f2sQR1S6Ne9v2UovhgiT3BlbkFJ8iF9gaPfDj46t2m4qPmd"
     
     func createTokenWithJsonHeader() -> HTTPHeaderField {
+        let key = self.apiKey.replacingOccurrences(of: "/", with: "-")
         return [
             "Content-Type" : "application/json",
-            "Authorization": "Bearer \(self.apiKey)"
+            "Authorization": "Bearer \(key)"
         ]
     }
     
@@ -76,7 +77,6 @@ class APIService {
                     } else if let data = data {
                         do {
                             let json = try JBJson(data: data)
-                            print(String(data: data, encoding: .utf8))
                             print(json)
                             completeAction(modelType.init(json: json), error)
                         } catch {

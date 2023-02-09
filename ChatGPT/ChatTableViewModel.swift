@@ -23,7 +23,7 @@ class ChatTableViewModel {
     func generateText(inputText: String, complete: ((_ respondText: String) -> ())?) {
         
         let param: parameter = [
-            "model": "text-davinci-003",
+            "model": "text-davinci-001",
             "prompt": inputText
         ]
 
