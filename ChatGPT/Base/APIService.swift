@@ -42,7 +42,7 @@ class APIService {
         case ChatGPTURL = "https://api.openai.com/v1/completions"
     }
     
-    let apiKey = "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"
+    let apiKey = "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"
     
     func createTokenWithJsonHeader() -> HTTPHeaderField {
         return [

@@ -1,47 +1,11 @@
 //
-//  ViewController.swift
+//  GPTRespondModel.swift
 //  ChatGPT
 //
-//  Created by 陳逸煌 on 2023/2/8.
+//  Created by 陳逸煌 on 2023/2/9.
 //
 
-import UIKit
-
-class ViewController: UIViewController {
-
-    @IBOutlet weak var textview: UITextView!
-    
-    @IBOutlet weak var button: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.button.addTarget(self, action: #selector(buttonTouch), for: .touchUpInside)
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc func buttonTouch() {
-        self.generateText(prompt: textview.text)
-    }
-    
-    
-    func generateText(prompt: String, n: Int = 1) {
-        
-        let param: parameter = [
-            "model": "text-davinci-003",
-            "prompt": prompt
-        ]
-
-        APIService.shared.requestWithParam(httpMethod: .post,
-                                           headerField: APIService.shared.createTokenWithJsonHeader(),
-                                           urlText: .ChatGPTURL,
-                                           param: param,
-                                           modelType: GPTRespondModel.self,
-                                           completeAction: { jsonModel, error  in
-            print("sss")
-        })
-        
-    }
-}
+import Foundation
 
 class GPTRespondModel: JsonModel {
     var prompt_tokens: Int?
@@ -90,15 +54,3 @@ class GPTRespondModel: JsonModel {
 //      "object" : "text_completion"
 //    }
 }
-
-struct OpenAIBody: Codable {
-    let model: String
-    let prompt: String
-    let temperature = 0.7
-    let max_tokens = 256
-    let top_p = 1.0
-    let frequency_penalty = 0.0
-    let presence_penalty = 0.0
-}
-
-
