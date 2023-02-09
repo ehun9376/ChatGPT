@@ -29,6 +29,10 @@
 		369B11B429948A12003F2660 /* InputLetterTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11B329948A12003F2660 /* InputLetterTextView.swift */; };
 		369B11B729949B3D003F2660 /* ChatTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11B629949B3D003F2660 /* ChatTableViewModel.swift */; };
 		369B11B92994DA67003F2660 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11B82994DA67003F2660 /* DeviceType.swift */; };
+		369B11C72994EF00003F2660 /* NoticeIndustryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11C32994EF00003F2660 /* NoticeIndustryCell.swift */; };
+		369B11C82994EF00003F2660 /* NoticeIndustryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369B11C42994EF00003F2660 /* NoticeIndustryCell.xib */; };
+		369B11C92994EF00003F2660 /* NoticeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11C52994EF00003F2660 /* NoticeUserCell.swift */; };
+		369B11CA2994EF00003F2660 /* NoticeUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369B11C62994EF00003F2660 /* NoticeUserCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		369B11B329948A12003F2660 /* InputLetterTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLetterTextView.swift; sourceTree = "<group>"; };
 		369B11B629949B3D003F2660 /* ChatTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewModel.swift; sourceTree = "<group>"; };
 		369B11B82994DA67003F2660 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		369B11C32994EF00003F2660 /* NoticeIndustryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeIndustryCell.swift; sourceTree = "<group>"; };
+		369B11C42994EF00003F2660 /* NoticeIndustryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeIndustryCell.xib; sourceTree = "<group>"; };
+		369B11C52994EF00003F2660 /* NoticeUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeUserCell.swift; sourceTree = "<group>"; };
+		369B11C62994EF00003F2660 /* NoticeUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeUserCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 				369B11AC299333D4003F2660 /* APIService.swift */,
 				369B116A29932385003F2660 /* ChatTableViewController.swift */,
 				369B11B629949B3D003F2660 /* ChatTableViewModel.swift */,
+				369B11BA2994EDF5003F2660 /* Cell */,
 				369B11B529949B1B003F2660 /* InputVIew */,
 				369B11AE29939B5F003F2660 /* APIModel */,
 				369B11982993339E003F2660 /* Base */,
@@ -188,6 +197,17 @@
 				369B11B329948A12003F2660 /* InputLetterTextView.swift */,
 			);
 			path = InputVIew;
+			sourceTree = "<group>";
+		};
+		369B11BA2994EDF5003F2660 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				369B11C32994EF00003F2660 /* NoticeIndustryCell.swift */,
+				369B11C42994EF00003F2660 /* NoticeIndustryCell.xib */,
+				369B11C52994EF00003F2660 /* NoticeUserCell.swift */,
+				369B11C62994EF00003F2660 /* NoticeUserCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +314,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369B11CA2994EF00003F2660 /* NoticeUserCell.xib in Resources */,
+				369B11C82994EF00003F2660 /* NoticeIndustryCell.xib in Resources */,
 				369B117329932387003F2660 /* LaunchScreen.storyboard in Resources */,
 				369B117029932387003F2660 /* Assets.xcassets in Resources */,
 			);
@@ -323,8 +345,10 @@
 				369B11B429948A12003F2660 /* InputLetterTextView.swift in Sources */,
 				369B11A6299333A9003F2660 /* BaseCollectionViewController.swift in Sources */,
 				369B11A3299333A9003F2660 /* CollectionViewAdapter.swift in Sources */,
+				369B11C72994EF00003F2660 /* NoticeIndustryCell.swift in Sources */,
 				369B11A2299333A9003F2660 /* BaseViewController.swift in Sources */,
 				369B11AA299333A9003F2660 /* JBJson.swift in Sources */,
+				369B11C92994EF00003F2660 /* NoticeUserCell.swift in Sources */,
 				369B11A7299333A9003F2660 /* TableViewAdapter.swift in Sources */,
 				369B11A8299333A9003F2660 /* Extension.swift in Sources */,
 				369B11B92994DA67003F2660 /* DeviceType.swift in Sources */,

@@ -36,11 +36,14 @@ public class TableViewAdapter: NSObject {
     }
     
     public func insertRowsAtLast(rowModels : [CellRowModel]) {
-        for rowModel in rowModels {
-            self.rowModels.append(rowModel)
-            let indexPath = IndexPath(row: self.rowModels.count, section: 0)
-            self.tableView?.insertRows(at: [indexPath], with: .automatic)
+        DispatchQueue.main.async {
+            for rowModel in rowModels {
+                self.rowModels.append(rowModel)
+                let indexPath = IndexPath(row: self.rowModels.count-1, section: 0)
+                self.tableView?.insertRows(at: [indexPath], with: .automatic)
+            }
         }
+
     }
     
 }

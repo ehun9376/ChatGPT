@@ -15,11 +15,39 @@ class ChatTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.resetTableView()
+        
         self.setupMainInputView()
         self.addAllSubView()
         
+        
         self.viewModel = .init(tableView: self.defaultTableView)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEndEdit)))
+        
+        self.regisCellID(cellIDs: [
+            "NoticeIndustryCell",
+            "NoticeUserCell"
+        ])
+        
+    }
+    
+    
+    func resetTableView() {
+        if self.view.subviews.contains(self.defaultTableView) {
+            self.defaultTableView.removeFromSuperview()
+        }
+        self.defaultTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.defaultTableView)
+        self.defaultTableView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        self.defaultTableView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        
+        NSLayoutConstraint.activate([
+            self.defaultTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.defaultTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.defaultTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+        ])
+        
         
     }
     
@@ -33,7 +61,8 @@ class ChatTableViewController: BaseTableViewController {
         NSLayoutConstraint.activate([
             self.mainInputView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.mainInputView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.mainInputView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            self.mainInputView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.mainInputView.topAnchor.constraint(equalTo: self.defaultTableView.bottomAnchor)
         ])
         
     }
@@ -42,9 +71,7 @@ class ChatTableViewController: BaseTableViewController {
         
         let viewModel = MainInputViewModel(textViewText: textViewText,
                                            sendButtonAction: { [weak self]  button, textViewText in
-            self?.viewModel?.generateText(inputText: textViewText, complete: { respondText in
-                print(respondText)
-            })
+            self?.viewModel?.userSendMessage(text: textViewText)
         })
         
         if reset {

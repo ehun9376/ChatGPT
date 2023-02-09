@@ -63,7 +63,7 @@ class MainInputView: UIView {
     ){
         self.init(frame: .zero)
         self.viewModel = viewModel
-        self.lineHeight = viewModel.lineHeight
+        self.lineHeight = UIFont.systemFont(ofSize: 16).lineHeight
         self.setupMainInputView()
     }
     
@@ -148,7 +148,8 @@ class MainInputView: UIView {
         self.addSubview(self.textView)
         self.addSubview(self.sendButton)
         
-        self.inputViewHeight = self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.lineHeight + self.offset)
+        self.inputViewHeight = self.heightAnchor.constraint(lessThanOrEqualToConstant: self.maxSize)
+        self.inputViewHeight?.constant = self.lineHeight + self.offset
         self.inputViewHeight?.isActive = true
 
         NSLayoutConstraint.activate([
@@ -173,6 +174,7 @@ class MainInputView: UIView {
     
     @objc func sendButtonAction(_ sender: UIButton) {
         self.viewModel?.sendButtonAction?(sender, self.textView.text)
+        self.textView.text = ""
     }
     
     
