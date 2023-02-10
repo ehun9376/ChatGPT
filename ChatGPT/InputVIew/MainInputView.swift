@@ -11,19 +11,17 @@ import UIKit
 
 class MainInputViewModel {
 
-    var lineHeight: CGFloat = UIFont.systemFont(ofSize: 16).lineHeight
     
     var textViewText: String?
     
     var sendButtonAction: ((UIButton, String)->())?
     
-    init(lineHeight: CGFloat = UIFont.systemFont(ofSize: 16).lineHeight,
+    init(
          textViewText: String?,
          moreButtonAction: ((UIButton) -> ())? = nil,
          sendButtonAction: ((UIButton, String) -> ())? = nil
     ) {
         self.textViewText = textViewText
-        self.lineHeight = lineHeight
         self.textViewText = textViewText
         self.sendButtonAction = sendButtonAction
     }
@@ -36,13 +34,11 @@ class MainInputView: UIView {
     
     private var viewModel: MainInputViewModel?
     
-    private var lineHeight: CGFloat = 0
-    
-    lazy private var safeHeight: CGFloat = DeviceType.iPhoneX ? 20.0 : 0
-    
-    lazy private var offset: CGFloat = 30.0 + self.safeHeight
+    private var lineHeight: CGFloat = UIFont.systemFont(ofSize: 16).lineHeight
+        
+    lazy private var offset: CGFloat = 20.0 + (DeviceType.iPhoneX ? 20.0 : 0)
 
-    lazy private var maxSize: CGFloat = 200.0 + offset
+    lazy private var maxSize: CGFloat = 200.0 + (DeviceType.iPhoneX ? 20.0 : 0) + 20
     
     private var inputViewHeight: NSLayoutConstraint?
     
@@ -63,7 +59,6 @@ class MainInputView: UIView {
     ){
         self.init(frame: .zero)
         self.viewModel = viewModel
-        self.lineHeight = UIFont.systemFont(ofSize: 16).lineHeight
         self.setupMainInputView()
     }
     
@@ -77,8 +72,14 @@ class MainInputView: UIView {
     
     
     private func checkInputViewHeight() {
+        
+        var lines: CGFloat = CGFloat(self.textView.numberOfLines())
+        
+        if lines <= 0.0 {
+            lines = 1.0
+        }
                 
-        let textViewHeight: CGFloat = CGFloat(self.textView.numberOfLines()) * self.lineHeight
+        let textViewHeight: CGFloat = lines * self.lineHeight
         
         if textViewHeight + offset >= maxSize {
             self.inputViewHeight?.constant = maxSize
@@ -149,8 +150,9 @@ class MainInputView: UIView {
         self.addSubview(self.sendButton)
         
         self.inputViewHeight = self.heightAnchor.constraint(lessThanOrEqualToConstant: self.maxSize)
-        self.inputViewHeight?.constant = self.lineHeight + self.offset
         self.inputViewHeight?.isActive = true
+        self.inputViewHeight?.constant = self.lineHeight + self.offset
+        
 
         NSLayoutConstraint.activate([
 
@@ -160,9 +162,9 @@ class MainInputView: UIView {
             
             self.textView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             self.textView.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -10),
-            self.textView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            self.textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: DeviceType.iPhoneX ? -10 + -self.safeHeight : -10),
-            self.textView.heightAnchor.constraint(greaterThanOrEqualToConstant: self.lineHeight+10),
+            self.textView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            self.textView.bottomAnchor.constraint(equalTo: self.bottomAnchor,
+                                                  constant: DeviceType.iPhoneX ? -23 : -8),
             
             self.sendButton.heightAnchor.constraint(equalToConstant: self.lineHeight),
             self.sendButton.widthAnchor.constraint(equalToConstant: 30),
@@ -175,6 +177,7 @@ class MainInputView: UIView {
     @objc func sendButtonAction(_ sender: UIButton) {
         self.viewModel?.sendButtonAction?(sender, self.textView.text)
         self.textView.text = ""
+        self.checkInputViewHeight()
     }
     
     

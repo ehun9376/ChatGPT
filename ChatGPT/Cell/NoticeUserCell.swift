@@ -60,6 +60,7 @@ class NoticeUserCell: UITableViewCell {
         self.sendDateTimeLabel.font = .systemFont(ofSize: 10)
         self.sendDateTimeLabel.textColor = .black
         
+        self.readedLabel.isHidden = true
         self.readedLabel.font = .systemFont(ofSize: 10)
         self.readedLabel.textColor = .black
         self.readedLabel.text = "已讀"
@@ -73,6 +74,5 @@ extension NoticeUserCell: BaseCellView {
         guard let rowModel = model as? NoticeUserCellRowModel else { return }
         self.contentTextView.text = rowModel.content
         self.sendDateTimeLabel.text = rowModel.sendDate
-        self.readedLabel.isHidden = !rowModel.readed
     }
 }

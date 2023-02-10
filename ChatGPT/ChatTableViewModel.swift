@@ -8,26 +8,31 @@
 import Foundation
 import UIKit
 
-protocol ChatTablewMethod {
+protocol ChatTableViewMethod {
     func openAIRespond(text: String)
+    func scroll(offset: CGFloat)
 }
 
 class ChatTableViewModel {
     
     var adapter: TableViewAdapter?
     
-    init(tableView: UITableView) {
+    var delegate: ChatTableViewMethod?
+    
+    init(tableView: UITableView, delegate: ChatTableViewMethod) {
         self.adapter = .init(tableView)
+        self.delegate = delegate
+        self.adapter?.scrollViewDidScroll = { [weak self] offset in
+            self?.delegate?.scroll(offset: offset)
+        }
     }
-    
-    
     
     func generateText(inputText: String, complete: ((_ respondText: String) -> ())?) {
         
         let param: parameter = [
-            "model": "text-davinci-001",
+            "model": "text-davinci-003",
             "prompt": inputText,
-            "max_tokens": 256
+            "max_tokens": 1000
         ]
 
         APIService.shared.requestWithParam(httpMethod: .post,
@@ -37,14 +42,14 @@ class ChatTableViewModel {
                                            modelType: GPTRespondModel.self,
                                            completeAction: { jsonModel, error  in
             self.chatGPTRespond(title: jsonModel?.model ?? "", text: jsonModel?.text ?? "")
-            
+            self.delegate?.openAIRespond(text: jsonModel?.text ?? "")
         })
         
     }
     
     func userSendMessage(text: String) {
         let rowModel = self.creatUserRowModel(text: text)
-        self.adapter?.insertRowsAtLast(rowModels: [rowModel])
+        self.adapter?.insertRowsAtLast(rowModels: [rowModel], scrollToRow: true)
         self.generateText(inputText: text, complete: nil)
     }
     

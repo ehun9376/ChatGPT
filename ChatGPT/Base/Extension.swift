@@ -15,6 +15,34 @@ enum SessionSetupResult {
     case notAuthorized
     case configurationFailed
 }
+extension UIView {
+    
+    public func drawSingleSideBoder(top: Bool = false, bottom: Bool = false, left: Bool = false, right: Bool = false, width: CGFloat, borderColor: UIColor){
+        if top {
+            let rect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
+            self.draw(rect)
+        }
+        
+        if bottom {
+            let rect = CGRect(x: 0, y: self.frame.size.height-width, width: self.frame.size.width, height: width)
+            self.draw(rect)
+            
+        }
+        
+        if left {
+            let rect = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
+            self.draw(rect)
+            
+        }
+        
+        if right {
+            let rect = CGRect(x: self.frame.size.width - width, y:0 , width: width, height: self.frame.size.height)
+            self.draw(rect)
+        }
+        
+    }
+    
+}
 
 extension UIColor {
     convenience init(hex: String) {

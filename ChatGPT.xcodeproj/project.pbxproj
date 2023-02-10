@@ -33,6 +33,7 @@
 		369B11C82994EF00003F2660 /* NoticeIndustryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369B11C42994EF00003F2660 /* NoticeIndustryCell.xib */; };
 		369B11C92994EF00003F2660 /* NoticeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11C52994EF00003F2660 /* NoticeUserCell.swift */; };
 		369B11CA2994EF00003F2660 /* NoticeUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369B11C62994EF00003F2660 /* NoticeUserCell.xib */; };
+		369B11CC2995EAEB003F2660 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11CB2995EAEB003F2660 /* RemindView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		369B11C42994EF00003F2660 /* NoticeIndustryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeIndustryCell.xib; sourceTree = "<group>"; };
 		369B11C52994EF00003F2660 /* NoticeUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeUserCell.swift; sourceTree = "<group>"; };
 		369B11C62994EF00003F2660 /* NoticeUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeUserCell.xib; sourceTree = "<group>"; };
+		369B11CB2995EAEB003F2660 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				369B11B1299489D7003F2660 /* MainInputView.swift */,
+				369B11CB2995EAEB003F2660 /* RemindView.swift */,
 				369B11B329948A12003F2660 /* InputLetterTextView.swift */,
 			);
 			path = InputVIew;
@@ -351,6 +354,7 @@
 				369B11C92994EF00003F2660 /* NoticeUserCell.swift in Sources */,
 				369B11A7299333A9003F2660 /* TableViewAdapter.swift in Sources */,
 				369B11A8299333A9003F2660 /* Extension.swift in Sources */,
+				369B11CC2995EAEB003F2660 /* RemindView.swift in Sources */,
 				369B11B92994DA67003F2660 /* DeviceType.swift in Sources */,
 				369B11B729949B3D003F2660 /* ChatTableViewModel.swift in Sources */,
 				369B11A5299333A9003F2660 /* BaseTableViewController.swift in Sources */,

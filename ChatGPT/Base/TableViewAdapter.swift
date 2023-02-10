@@ -16,7 +16,7 @@ public class TableViewAdapter: NSObject {
     
     public var reachBottomAction: ((IndexPath) -> ())?
     
-    public var scrollViewDidScroll: ((CGFloat)->())?
+    public var scrollViewDidScroll: ((_ offset:CGFloat)->())?
     
     public init(_ tableView: UITableView){
         super.init()
@@ -35,12 +35,17 @@ public class TableViewAdapter: NSObject {
         }
     }
     
-    public func insertRowsAtLast(rowModels : [CellRowModel]) {
+    public func insertRowsAtLast(rowModels : [CellRowModel], scrollToRow: Bool = false) {
         DispatchQueue.main.async {
             for rowModel in rowModels {
                 self.rowModels.append(rowModel)
                 let indexPath = IndexPath(row: self.rowModels.count-1, section: 0)
                 self.tableView?.insertRows(at: [indexPath], with: .automatic)
+                
+                if scrollToRow {
+                    self.tableView?.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                }
+                
             }
         }
 
