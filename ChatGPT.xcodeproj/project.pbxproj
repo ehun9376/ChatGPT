@@ -34,6 +34,8 @@
 		369B11C92994EF00003F2660 /* NoticeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11C52994EF00003F2660 /* NoticeUserCell.swift */; };
 		369B11CA2994EF00003F2660 /* NoticeUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369B11C62994EF00003F2660 /* NoticeUserCell.xib */; };
 		369B11CC2995EAEB003F2660 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B11CB2995EAEB003F2660 /* RemindView.swift */; };
+		369B11D029963DE7003F2660 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 369B11CF29963DE7003F2660 /* GoogleService-Info.plist */; };
+		75CD77AA9CCFDD3EA785A3FA /* libPods-ChatGPT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 693263FF77F3F9AE5445C1F9 /* libPods-ChatGPT.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,11 @@
 		369B11C52994EF00003F2660 /* NoticeUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeUserCell.swift; sourceTree = "<group>"; };
 		369B11C62994EF00003F2660 /* NoticeUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeUserCell.xib; sourceTree = "<group>"; };
 		369B11CB2995EAEB003F2660 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
+		369B11CF29963DE7003F2660 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		369B11D129964294003F2660 /* ChatGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatGPT.entitlements; sourceTree = "<group>"; };
+		693263FF77F3F9AE5445C1F9 /* libPods-ChatGPT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatGPT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6404D09600515A7CFA56A7 /* Pods-ChatGPT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatGPT.release.xcconfig"; path = "Target Support Files/Pods-ChatGPT/Pods-ChatGPT.release.xcconfig"; sourceTree = "<group>"; };
+		AF87714FA8015934E91A5A2C /* Pods-ChatGPT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatGPT.debug.xcconfig"; path = "Target Support Files/Pods-ChatGPT/Pods-ChatGPT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75CD77AA9CCFDD3EA785A3FA /* libPods-ChatGPT.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EAA2A9457AE49141B2275D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF87714FA8015934E91A5A2C /* Pods-ChatGPT.debug.xcconfig */,
+				8C6404D09600515A7CFA56A7 /* Pods-ChatGPT.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		369B115A29932385003F2660 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +136,8 @@
 				369B117C29932387003F2660 /* ChatGPTTests */,
 				369B118629932387003F2660 /* ChatGPTUITests */,
 				369B116429932385003F2660 /* Products */,
+				1EAA2A9457AE49141B2275D5 /* Pods */,
+				68674DE32E6A89A1A6C2B3D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +154,7 @@
 		369B116529932385003F2660 /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
+				369B11D129964294003F2660 /* ChatGPT.entitlements */,
 				369B116629932385003F2660 /* AppDelegate.swift */,
 				369B11AC299333D4003F2660 /* APIService.swift */,
 				369B116A29932385003F2660 /* ChatTableViewController.swift */,
@@ -146,6 +166,7 @@
 				369B116F29932387003F2660 /* Assets.xcassets */,
 				369B117129932387003F2660 /* LaunchScreen.storyboard */,
 				369B117429932387003F2660 /* Info.plist */,
+				369B11CF29963DE7003F2660 /* GoogleService-Info.plist */,
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
@@ -213,6 +234,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		68674DE32E6A89A1A6C2B3D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				693263FF77F3F9AE5445C1F9 /* libPods-ChatGPT.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 369B118D29932387003F2660 /* Build configuration list for PBXNativeTarget "ChatGPT" */;
 			buildPhases = (
+				DFEB804ACD7C41936D5E503C /* [CP] Check Pods Manifest.lock */,
 				369B115F29932385003F2660 /* Sources */,
 				369B116029932385003F2660 /* Frameworks */,
 				369B116129932385003F2660 /* Resources */,
+				7A06E1629E9FED9102D65DBB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,6 +350,7 @@
 			files = (
 				369B11CA2994EF00003F2660 /* NoticeUserCell.xib in Resources */,
 				369B11C82994EF00003F2660 /* NoticeIndustryCell.xib in Resources */,
+				369B11D029963DE7003F2660 /* GoogleService-Info.plist in Resources */,
 				369B117329932387003F2660 /* LaunchScreen.storyboard in Resources */,
 				369B117029932387003F2660 /* Assets.xcassets in Resources */,
 			);
@@ -339,6 +371,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A06E1629E9FED9102D65DBB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatGPT/Pods-ChatGPT-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatGPT/Pods-ChatGPT-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatGPT/Pods-ChatGPT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFEB804ACD7C41936D5E503C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatGPT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		369B115F29932385003F2660 /* Sources */ = {
@@ -462,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -516,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -528,9 +602,11 @@
 		};
 		369B118E29932387003F2660 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF87714FA8015934E91A5A2C /* Pods-ChatGPT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatGPT/ChatGPT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NZT54R9366;
@@ -538,8 +614,8 @@
 				INFOPLIST_FILE = ChatGPT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,9 +634,11 @@
 		};
 		369B118F29932387003F2660 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C6404D09600515A7CFA56A7 /* Pods-ChatGPT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChatGPT/ChatGPT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NZT54R9366;
@@ -568,8 +646,8 @@
 				INFOPLIST_FILE = ChatGPT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

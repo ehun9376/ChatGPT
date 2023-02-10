@@ -13,13 +13,14 @@ protocol ChatTableViewMethod {
     func scroll(offset: CGFloat)
 }
 
-class ChatTableViewModel {
+class ChatTableViewModel: NSObject {
     
     var adapter: TableViewAdapter?
     
     var delegate: ChatTableViewMethod?
     
     init(tableView: UITableView, delegate: ChatTableViewMethod) {
+        super.init()
         self.adapter = .init(tableView)
         self.delegate = delegate
         self.adapter?.scrollViewDidScroll = { [weak self] offset in
@@ -43,6 +44,7 @@ class ChatTableViewModel {
                                            completeAction: { jsonModel, error  in
             self.chatGPTRespond(title: jsonModel?.model ?? "", text: jsonModel?.text ?? "")
             self.delegate?.openAIRespond(text: jsonModel?.text ?? "")
+            self.sendLocalNotication(title: "GPT回應囉", body: jsonModel?.text ?? "")
         })
         
     }

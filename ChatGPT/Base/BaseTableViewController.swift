@@ -20,7 +20,7 @@ extension UITableView {
                 row: self.numberOfRows(inSection:  self.numberOfSections-1) - 1,
                 section: self.numberOfSections - 1)
             
-            if self.hasRowAtIndexPath(indexPath: indexPath) {
+            if indexPath.row >= 0 && self.hasRowAtIndexPath(indexPath: indexPath) {
                 self.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
             

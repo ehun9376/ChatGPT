@@ -19,12 +19,10 @@ class ChatTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.resetTableView()
         self.setupRemindView()
         self.setupMainInputView()
         self.addAllSubView()
-        KeyboardHelper.shared.delegate = self
         
         self.viewModel = .init(tableView: self.defaultTableView, delegate: self)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEndEdit)))
@@ -35,6 +33,13 @@ class ChatTableViewController: BaseTableViewController {
             "NoticeUserCell"
         ])
         
+        KeyboardHelper.shared.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.endEditing(true)
     }
     
     
@@ -128,22 +133,15 @@ extension ChatTableViewController: ChatTableViewMethod {
     
     func scroll(offset: CGFloat) {
         
-        print("self.defaultTableView.contentSize.height \(self.defaultTableView.contentSize.height)")
-        print("self.defaultTableView.frame.height \(self.defaultTableView.frame.height)")
-        print(offset)
-        
         self.showRemindView = !(self.defaultTableView.contentSize.height - self.defaultTableView.frame.height <= offset) && self.defaultTableView.contentSize.height > self.defaultTableView.frame.height
-        print(self.showRemindView)
         
     }
 }
 
 extension ChatTableViewController: KeyboardHelperDelegate {
     func didViewChanged(frame: CGRect, duration: Double, isHiddenKeyboard: Bool) {
-        if !isHiddenKeyboard {
-            
+        if !isHiddenKeyboard, !self.showRemindView {
+            self.defaultTableView.scrollToBottom()
         }
     }
-    
-    
 }
